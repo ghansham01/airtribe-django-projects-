@@ -1,0 +1,42 @@
+[
+      {
+            "id": 1,
+            "title": "Login button not working on mobile",
+            "description": "Users on iOS 17 cannot tap the login button",
+            "status": "open",
+            "priority": "critical",
+            "reporter_id": 1
+      },
+      {
+            "id": 2,
+            "title": "Typo on settings page",
+            "description": "The word 'Preferences' is misspelled in the header",
+            "status": "open",
+            "priority": "low",
+            "reporter_id": 2
+      },
+      {
+            "id": 3,
+            "title": "Slow dashboard load time",
+            "description": "Dashboard takes over 8 seconds to load with large datasets",
+            "status": "in_progress",
+            "priority": "medium",
+            "reporter_id": 1
+      },
+      {
+            "id": 4,
+            "title": "CI pipeline failing on main",
+            "description": "Docker build step times out after the base image update",
+            "status": "resolved",
+            "priority": "high",
+            "reporter_id": 3
+      },
+      {
+            "id": 5,
+            "title": "",
+            "description": "No title given",
+            "status": "open",
+            "priority": "high",
+            "reporter_id": 1
+      }
+]
