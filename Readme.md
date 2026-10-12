@@ -1,6 +1,6 @@
 # Airtribe Projects
 
-A running list of projects in this folder and the errors encountered while building them, including how each issue was resolved.
+A running list of projects in this folder and the errors encountered while building them, including how each issue was resolved
 
 ## Projects
 
