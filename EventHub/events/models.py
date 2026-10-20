@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 class Event(models.Model):
       STATUS_CHOICES = [
-            ('UPCOMING', 'Upcoming'),
-            ('ONGOING', 'Ongoing'),
-            ('COMPLETED', 'Completed'),
-            ('CANCELLED', 'Cancelled'),
+            ('upcoming', 'Upcoming'),
+            ('ongoing', 'Ongoing'),
+            ('completed', 'Completed'),
+            ('cancelled', 'Cancelled'),
       ]
 
       title = models.CharField(max_length=200)
@@ -19,7 +19,7 @@ class Event(models.Model):
       status = models.CharField(
             max_length=10,
             choices=STATUS_CHOICES,
-            default='UPCOMING',
+            default='upcoming',
       )
 
       created_at = models.DateTimeField(auto_now_add=True)  
@@ -37,21 +37,17 @@ class Reservation(models.Model):
             ('CANCELLED', 'Cancelled'),
       ]
 
-      event = models.ForeignKey(Event, on_delete=models.CASCADE)
-      user = models.CharField(max_length=200)
-      status = models.CharField(
-            max_length=10,
-            choices=STATUS_CHOICES,
-            default='CONFIRMED',
-      )
+      event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='reservations')
+      attendee_name = models.CharField(max_length=200)
+      attendee_email = models.EmailField()
+      seats_reserved = models.PositiveIntegerField()
 
       created_at = models.DateTimeField(auto_now_add=True)
 
       def __str__(self):
-            return (
-                  f"{self.user} - {self.event.title} "
-                  f"({self.status})"
-            )
+            
+            return f"{self.attendee_name} - {self.event.title} ({self.seats_reserved} seats)"
+
 
       class Meta:
             ordering = ['-created_at']
